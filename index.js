@@ -28,7 +28,7 @@ class Container {
    * be returned everytime this key is accessed
    * @constructor
    * @param {string} name - Unique key used to register into the container
-   * @param {Object} Class - The author of the book.
+   * @param {Object} Class - Class that will be instantiated as a Singleton.
    */
   registerClass(name, Cls) {
     if (this.store[name]) {
