@@ -1,5 +1,9 @@
+import Db from './Db'
+
 export default class TodoService {
-  constructor({ db }) {
+  db: Db
+
+  constructor({ db }: { db: Db }) {
     this.db = db
   }
 

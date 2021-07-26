@@ -5,7 +5,15 @@ export function createContainer() {
   return new Container()
 }
 
+type StoreObject = Record<any, any>
+
+type StoreClass = {
+  instance: any
+}
+
 class Container {
+  store: Record<string, StoreObject | StoreClass>
+
   constructor() {
     this.store = {}
   }
@@ -16,7 +24,7 @@ class Container {
    * @param {string} name - Unique key used to register into the container
    * @param {Object} obj - Object to be stored
    */
-  registerObject(name, obj) {
+  registerObject(name: string, obj: StoreObject) {
     if (this.store[name]) {
       throw new Error(`'${name}' is already registered`)
     }
@@ -30,12 +38,12 @@ class Container {
    * @param {string} name - Unique key used to register into the container
    * @param {Object} Class - Class that will be instantiated as a Singleton.
    */
-  registerClass(name, Cls) {
+  registerClass(name: string, Cls: typeof Type) {
     if (this.store[name]) {
       throw new Error(`'${name}' is already registered`)
     }
     
-    const clsHandler = {
+    const clsHandler: ProxyHandler<any> = {
       get: (target, prop) => {
         if (!target.instance) {
           target.instance = new Cls(this.store)
@@ -52,6 +60,17 @@ class Container {
       },
     };
 
-    this.store[name] = new Proxy({}, clsHandler)
+    this.store[name] = new Proxy<{ instance?: T }>({}, clsHandler)
+  }
+}
+
+
+function getX() {
+  return Mek
+}
+
+class Mek {
+  constructor() {
+    //
   }
 }

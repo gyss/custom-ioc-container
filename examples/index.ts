@@ -1,6 +1,6 @@
-import { createContainer } from '../index.js'
-import Db from './Db.js'
-import Todos from './Todos.js'
+import { createContainer } from '../index'
+import Db from './Db'
+import Todos from './Todos'
 
 // Create a container
 const container = createContainer()
