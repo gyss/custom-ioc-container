@@ -1,3 +1,4 @@
+
 export default class Db {
   constructor({ dbConfig }) {
     console.log('DB connecting to = ', dbConfig.connString)

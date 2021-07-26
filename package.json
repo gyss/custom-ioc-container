@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Custom IoC container library",
   "type": "module",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "test": "jest",
     "test.w": "jest --watch"
@@ -11,13 +11,16 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/plugin-transform-typescript": "^7.14.6",
     "@babel/preset-env": "^7.14.7",
+    "@tsconfig/recommended": "^1.0.1",
     "babel-jest": "^27.0.6",
     "eslint": "^7.31.0",
     "eslint-plugin-jest": "^24.3.6",
     "eslint-plugin-jest-formatting": "^3.0.0",
     "eslint-plugin-prettier": "^3.4.0",
     "jest": "^27.0.6",
-    "prettier": "^2.3.2"
+    "prettier": "^2.3.2",
+    "typescript": "^4.3.5"
   }
 }
